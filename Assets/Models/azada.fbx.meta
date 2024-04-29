@@ -3,7 +3,17 @@ guid: fc287ed9a0530db4fad53b784abfcdf4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cabeza
+    second: {fileID: 2100000, guid: 785d6eef36d98874e83b694eea9d9bda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mango
+    second: {fileID: 2100000, guid: 548ae78a5565811419194e788e097791, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
