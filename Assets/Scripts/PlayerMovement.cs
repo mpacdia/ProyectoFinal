@@ -10,11 +10,16 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerInput playerInput;
 
+    Animator animatorController;
+
+    public Vector2 read;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
+        animatorController = GetComponent<Animator>();
     }
     public void toMovePlayer(InputAction.CallbackContext context)
     {
@@ -25,8 +30,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 read = playerInput.actions["move"].ReadValue<Vector2>();
-
+        read = playerInput.actions["move"].ReadValue<Vector2>();
+        
         rb.velocity = new Vector3(read.x * 5, rb.velocity.y, read.y * 5);
+
+        if (rb.velocity.magnitude > 0.5f)
+        {
+            animatorController.SetBool("moving", true);
+        }
+        else
+        {
+            animatorController.SetBool("moving", false);
+        }
     }
 }
