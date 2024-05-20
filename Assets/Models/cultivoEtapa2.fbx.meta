@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: c39cb6541fc8f0c4da7e8f314115740b
+guid: c6a3e739b4d4d7448aad84ec6bdd9137
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: suelo
-    second: {fileID: 2100000, guid: f0d82f338822ca84eb32b3c665874bc9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

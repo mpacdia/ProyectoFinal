@@ -42,5 +42,10 @@ public class PlayerMovement : MonoBehaviour
         {
             animatorController.SetBool("moving", false);
         }
+
+        if (playerInput.actions["smoke"].enabled)
+        {
+            animatorController.SetTrigger("smoke");
+        }
     }
 }

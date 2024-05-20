@@ -2,7 +2,7 @@
     "name": "payerActions",
     "maps": [
         {
-            "name": "movement",
+            "name": "camello",
             "id": "f9b7f60e-c168-4e9d-8a18-8ee1db8e625f",
             "actions": [
                 {
@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "29eecf53-9b3e-402b-a80d-c312b158931c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "smoke",
+                    "type": "Button",
+                    "id": "6f96a6c9-9ed2-4150-a8ae-3883feebc72c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -81,6 +99,39 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7a4e2484-8a2c-4074-b135-bc1773a5c190",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bf3cf4d-16fb-43ef-8445-f2bbf3602e8c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d73152a-f950-4787-a08d-9b8734af8a2b",
+                    "path": "<Keyboard>/1",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "smoke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
