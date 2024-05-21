@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = readVector;
     }
+
+    public void smoke(InputAction.CallbackContext context)
+    {
+        if(context.started) animatorController.SetTrigger("smoke");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -41,11 +46,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animatorController.SetBool("moving", false);
-        }
-
-        if (playerInput.actions["smoke"].enabled)
-        {
-            animatorController.SetTrigger("smoke");
         }
     }
 }
