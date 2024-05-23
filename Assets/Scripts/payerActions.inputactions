@@ -9,7 +9,7 @@
                     "name": "move",
                     "type": "Value",
                     "id": "72de29ec-f64d-4ba0-95c1-0e112763fc84",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "rotate",
+                    "type": "Button",
+                    "id": "0f329221-3d26-40e3-b456-20915a3424c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -47,7 +56,7 @@
                 },
                 {
                     "name": "2D Vector",
-                    "id": "11f0ce06-170a-4bcf-94c7-e52e30aee619",
+                    "id": "de5b8fac-dad4-480f-921f-d2a7c4ab39cc",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -58,7 +67,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "e7ee3976-a535-47b5-8802-3417dae201d7",
+                    "id": "5025b1f6-f11a-40ec-9441-60dbc80f7d05",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -69,7 +78,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "018b351f-4089-4a47-847e-b1d2d0b7bce5",
+                    "id": "5d45553f-89ea-49ef-a179-f7a957c45279",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -80,7 +89,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "773a866b-2103-4d5e-920b-2946961e2192",
+                    "id": "fb15aac3-5e7e-4848-bbfb-2df572a082fc",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -91,7 +100,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "15ab4087-8a3f-4b27-a4a9-fb12657f2a49",
+                    "id": "ceb689a3-0334-40a5-8458-1aa32e76490d",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -132,6 +141,39 @@
                     "action": "smoke",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "9609afcd-aeac-478c-89d0-9762f840110e",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "62344e41-82da-437f-82db-b36aca115768",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "b24a48de-a98c-47a2-b4a5-b4d471679188",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

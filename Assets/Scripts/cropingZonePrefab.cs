@@ -6,9 +6,9 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
 {
     int cropState = 0;
 
-    GameObject cropState1;
-    GameObject cropState2;
-    GameObject cropState3;
+    public GameObject cropState1;
+    public GameObject cropState2;
+    public GameObject cropState3;
 
     public void Interact()
     {
@@ -21,9 +21,7 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        cropState1 = GameObject.Find("cultivoEtapa1");
-        cropState2 = GameObject.Find("cultivoEtapa2");
-        cropState3 = GameObject.Find("cultivoEtapa3");
+        
     }
 
     // Update is called once per frame
