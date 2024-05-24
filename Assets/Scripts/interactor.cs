@@ -10,7 +10,7 @@ interface IInteractable
 
 public class interactor : MonoBehaviour
 {
-    
+
     public Transform InteractorSource;
     public float InteractorRange;
 
@@ -38,5 +38,4 @@ public class interactor : MonoBehaviour
         }
     }
 
-    
 }

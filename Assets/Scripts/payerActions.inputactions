@@ -133,6 +133,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7fc0b72e-3b28-4c89-b503-7d551c005276",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "smoke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6d73152a-f950-4787-a08d-9b8734af8a2b",
                     "path": "<Keyboard>/1",
                     "interactions": "Tap",
@@ -168,6 +179,39 @@
                     "name": "positive",
                     "id": "b24a48de-a98c-47a2-b4a5-b4d471679188",
                     "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis Gamepad",
+                    "id": "fe6912ac-8db7-480f-a487-1a39f85846d5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4f61e8d7-44e1-42de-9326-9cd0fcc5ecdc",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "3031c227-a421-42e0-84f1-c3964f86baeb",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
