@@ -25,7 +25,12 @@ public class interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions["interact"].enabled)
+
+    }
+
+    public void activateInteraction(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
             if (Physics.Raycast(r, out RaycastHit hitInfo, InteractorRange))
