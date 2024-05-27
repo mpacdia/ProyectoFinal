@@ -41,7 +41,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         read = playerInput.actions["move"].ReadValue<Vector2>();
-        rb.velocity = new Vector3(read.x * 5, rb.velocity.y, read.y * 5);
+
+        Vector3 fwd = Camera.main.transform.forward * read.y * 5; /// eje z ajustado a la camara
+        Vector3 right = Camera.main.transform.right * read.x * 5; /// eje x ajustado a la camara
+        Vector3 final = fwd + right;
+        final.y = 0;
+        rb.velocity = new Vector3(final.x, rb.velocity.y, final.z);
 
         if (rb.velocity.magnitude > 0.5f)
         {
@@ -53,6 +58,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rotating = playerInput.actions["rotate"].IsPressed();
-        if (rotating) transform.Rotate(Vector3.up, 24 * Time.deltaTime);
+        if (rotating) transform.Rotate(Vector3.up * playerInput.actions["rotate"].ReadValue<float>(), 24 * Time.deltaTime);
     }
 }
