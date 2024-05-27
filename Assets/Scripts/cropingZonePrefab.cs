@@ -14,7 +14,8 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     {
         if (cropState == 0)
         {
-            GameObject crop = Instantiate(cropState1);
+            GameObject crop = Instantiate(cropState1, transform.position, Quaternion.identity);
+            cropState++;
         }
     }
 

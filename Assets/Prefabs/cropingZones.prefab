@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5856893152650791879
+--- !u!1 &7306946586069831602
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7601809405232935524}
-  - component: {fileID: 3378766828729113007}
-  - component: {fileID: 4837148906541976802}
+  - component: {fileID: 7306946586069831601}
+  - component: {fileID: 7306946586069831600}
+  - component: {fileID: 7306946586069831603}
   m_Layer: 0
   m_Name: cropingZones
   m_TagString: Untagged
@@ -18,51 +18,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7601809405232935524
+--- !u!4 &7306946586069831601
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5856893152650791879}
-  serializedVersion: 2
+  m_GameObject: {fileID: 7306946586069831602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.39, y: 0, z: -11.24}
+  m_LocalPosition: {x: -15.42, y: 1.68, z: 2.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3378766828729113007
+--- !u!65 &7306946586069831600
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5856893152650791879}
+  m_GameObject: {fileID: 7306946586069831602}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4837148906541976802
+--- !u!114 &7306946586069831603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5856893152650791879}
+  m_GameObject: {fileID: 7306946586069831602}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c17172ceafa5cb64c9fcc007fcd5d437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cropState1: {fileID: 919132149155446097, guid: 7f9aedf5fa4a1894f8c6c2b58c549c64, type: 3}
+  cropState2: {fileID: 919132149155446097, guid: 30991c627d8f0834ba8bc45f1e028585, type: 3}
+  cropState3: {fileID: 919132149155446097, guid: f732948e943722b4e9e32ea6b8b505b5, type: 3}
