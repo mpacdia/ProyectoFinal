@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class triggerForOutline : MonoBehaviour
 {
-    public BoxCollider camelArea;
+    public BoxCollider areaCropZone;
+    public Outline outlineScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        camelArea = GetComponent<BoxCollider>();
+        areaCropZone = GetComponent<BoxCollider>();
+        outlineScript = GetComponent<Outline>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,19 @@ public class triggerForOutline : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.tag == "cropZone")
+        if (other.gameObject.tag == "camel")
+        {
+            Debug.Log(gameObject.name + "enter");
+            outlineScript.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "camel")
+        {
+            Debug.Log(gameObject.name + "exit");
+            outlineScript.enabled = false;
+        }
     }
 }
