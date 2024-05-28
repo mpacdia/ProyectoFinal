@@ -20,6 +20,6 @@ public class triggerForOutline : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "cropZone")
+        //if (other.gameObject.tag == "cropZone")
     }
 }
