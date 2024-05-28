@@ -2325,7 +2325,7 @@ GameObject:
   - component: {fileID: 811488470}
   m_Layer: 0
   m_Name: triggerForOutline
-  m_TagString: Untagged
+  m_TagString: camel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2356,7 +2356,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 0.2, z: 3}
+  m_Size: {x: 5, y: 0.2, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &842613006 stripped
 Transform:
@@ -6142,6 +6142,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd157c6e926bafd498510490adfd540d, type: 3}
       propertyPath: m_Name
       value: camello
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd157c6e926bafd498510490adfd540d, type: 3}
+      propertyPath: m_TagString
+      value: camel
       objectReference: {fileID: 0}
     - target: {fileID: 1016588343112577277, guid: fd157c6e926bafd498510490adfd540d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
