@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class triggerForOutline : MonoBehaviour
 {
-    public BoxCollider areaCropZone;
     public Outline outlineScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        areaCropZone = GetComponent<BoxCollider>();
         outlineScript = GetComponent<Outline>();
     }
 
