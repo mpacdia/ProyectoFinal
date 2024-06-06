@@ -41,7 +41,7 @@ public class dayNightCycle : MonoBehaviour
         }
         if (rotationSun > -0.00003 & rotationSun < 0.00003f)
         {
-            Debug.Log("oof");
+            //Debug.Log("oof");
             currentDay++;
         }
         Debug.Log("rotation:" + rotationSun + "," + "currentDay:" + currentDay + "daytime:" + daytime);

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class cropingZonePrefab : MonoBehaviour, IInteractable
 {
-    int cropState = 0;
+    public int cropState = 0;
 
     public GameObject cropState1;
     public GameObject cropState2;
     public GameObject cropState3;
 
-    GameObject sun;
+    bool instantiatedOnce = false;
+    bool instantiatedTwice = false;
 
+    GameObject sun;
+    dayNightCycle dayNightCycle;
     public void Interact()
     {
         if (cropState == 0)
@@ -30,23 +33,26 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     void Start()
     {
         sun = GameObject.Find("sun");
+        dayNightCycle = sun.GetComponent<dayNightCycle>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        cropState = sun.GetComponent<dayNightCycle>().CurrentDay;
+         
 
-        if (cropState == 1)
+        if (dayNightCycle.CurrentDay == 1 && instantiatedOnce == false)
         { 
             Destroy(GameObject.FindGameObjectWithTag("cropState1"));
             GameObject crop = Instantiate(cropState2, transform.position, Quaternion.identity);
+            instantiatedOnce = true;
         }
-        
-        if (cropState == 2)
-        { 
+
+        if (dayNightCycle.CurrentDay == 2 && instantiatedTwice == false)
+        {
             Destroy(GameObject.FindGameObjectWithTag("cropState2"));
             GameObject crop = Instantiate(cropState3, transform.position, Quaternion.identity);
+            instantiatedTwice = true;
         }
     }
 }
