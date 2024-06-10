@@ -8,6 +8,7 @@ TagManager:
   - cropState1
   - cropState2
   - cropState3
+  - cropingZone
   layers:
   - Default
   - TransparentFX

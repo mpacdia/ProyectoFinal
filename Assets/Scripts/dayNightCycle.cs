@@ -18,10 +18,13 @@ public class dayNightCycle : MonoBehaviour
 
     public float rotationSun = 0;
 
+    List<GameObject> cropingZones = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         currentDay = 0;
+        cropingZones.AddRange(GameObject.FindGameObjectsWithTag("cropingZone"));
     }
 
     // Update is called once per frame
@@ -42,7 +45,17 @@ public class dayNightCycle : MonoBehaviour
         if (rotationSun > -0.00003 & rotationSun < 0.00003f)
         {
             //Debug.Log("oof");
+            // Buscar todas las zonas de plantado
+            
+            // para cada una de ellas llamar al metodo cambiarDia();
+            foreach(GameObject cropingZone in cropingZones)
+            {
+                
+            }
+            
+
             currentDay++;
+            
         }
         Debug.Log("rotation:" + rotationSun + "," + "currentDay:" + currentDay + "daytime:" + daytime);
     }
