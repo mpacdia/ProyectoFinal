@@ -12,6 +12,7 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
 
     bool instantiatedOnce = false;
     bool instantiatedTwice = false;
+    bool instantiatedThrice = false;
 
     GameObject sun;
     dayNightCycle dayNightCycle;
@@ -20,12 +21,13 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
         if (cropState == 0)
         {
             GameObject crop = Instantiate(cropState1, transform.position, Quaternion.identity);
-            cropState++;
+            cropState = 1;
+            instantiatedOnce = true;
         }
 
         if (cropState == 3)
         {
-            Destroy(cropState3);
+            Destroy(GameObject.Find("cropState3"));
         }
     }
 
@@ -41,18 +43,20 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     {
          
 
-        if (dayNightCycle.CurrentDay == 1 && instantiatedOnce == false)
+        if (dayNightCycle.CurrentDay == 1 && instantiatedOnce == true && instantiatedTwice == false)
         { 
             Destroy(GameObject.FindGameObjectWithTag("cropState1"));
             GameObject crop = Instantiate(cropState2, transform.position, Quaternion.identity);
-            instantiatedOnce = true;
+            instantiatedTwice = true;
+            cropState = 2;
         }
 
-        if (dayNightCycle.CurrentDay == 2 && instantiatedTwice == false)
+        if (dayNightCycle.CurrentDay == 2 && instantiatedTwice == true && instantiatedThrice == false)
         {
             Destroy(GameObject.FindGameObjectWithTag("cropState2"));
             GameObject crop = Instantiate(cropState3, transform.position, Quaternion.identity);
-            instantiatedTwice = true;
+            instantiatedThrice = true;
+            cropState = 3;
         }
     }
 }
