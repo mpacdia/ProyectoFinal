@@ -14,9 +14,9 @@ public class dayNightCycle : MonoBehaviour
 
 
     bool daytime;
-    public float timeSpeed = 1f;
+    public float timeSpeed = 6f;
 
-    float rotationSun = 0;
+    public float rotationSun = 0;
 
     // Start is called before the first frame update
     void Start()

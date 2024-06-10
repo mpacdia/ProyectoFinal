@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class cropingZonePrefab : MonoBehaviour, IInteractable
 {
@@ -10,9 +11,9 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     public GameObject cropState2;
     public GameObject cropState3;
 
-    bool instantiatedOnce = false;
-    bool instantiatedTwice = false;
-    bool instantiatedThrice = false;
+    public bool instantiatedOnce = false;
+    public bool instantiatedTwice = false;
+    public bool instantiatedThrice = false;
 
     GameObject sun;
     dayNightCycle dayNightCycle;
@@ -27,7 +28,8 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
 
         if (cropState == 3)
         {
-            Destroy(GameObject.Find("cropState3"));
+            Destroy(GameObject.FindGameObjectWithTag("cropState3"));
+
         }
     }
 
@@ -43,20 +45,23 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     {
          
 
-        if (dayNightCycle.CurrentDay == 1 && instantiatedOnce == true && instantiatedTwice == false)
+        if (dayNightCycle.CurrentDay >= 1 && instantiatedOnce == true && instantiatedTwice == false)
         { 
             Destroy(GameObject.FindGameObjectWithTag("cropState1"));
             GameObject crop = Instantiate(cropState2, transform.position, Quaternion.identity);
             instantiatedTwice = true;
-            cropState = 2;
+            if (cropState == 1) cropState = 2;
+            else cropState = 1;
         }
 
-        if (dayNightCycle.CurrentDay == 2 && instantiatedTwice == true && instantiatedThrice == false)
+        if (dayNightCycle.CurrentDay >= 2 && instantiatedTwice == true && instantiatedThrice == false)
         {
             Destroy(GameObject.FindGameObjectWithTag("cropState2"));
             GameObject crop = Instantiate(cropState3, transform.position, Quaternion.identity);
             instantiatedThrice = true;
-            cropState = 3;
+            if (cropState == 2) cropState = 3;
+            else cropState = 2;
+            
         }
     }
 }
