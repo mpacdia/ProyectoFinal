@@ -10,7 +10,7 @@ public class sleep : MonoBehaviour, IInteractable
     public void Interact()
     {
         sun.transform.rotation = Quaternion.identity;
-        dayNightCycle.CurrentDay++;
+        dayNightCycle.changeDay();
     }
 
     // Start is called before the first frame update

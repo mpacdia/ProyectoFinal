@@ -55,22 +55,22 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     public void changeDay()
     {
         // ¿cual es mi cropSytate?
-        if (dayNightCycle.CurrentDay >= 1 && instantiatedOnce == true && instantiatedTwice == false)
+        if (cropState == 1 && instantiatedOnce == true && instantiatedTwice == false)
         { 
             Destroy(GameObject.FindGameObjectWithTag("cropState1"));
             GameObject crop = Instantiate(cropState2, transform.position, Quaternion.identity);
             instantiatedTwice = true;
-            if (cropState == 1) cropState = 2;
-            else cropState = 1;
+            cropState = 2;
+            
         }
 
-        if (dayNightCycle.CurrentDay >= 2 && instantiatedTwice == true && instantiatedThrice == false)
+        else if (cropState == 2 && instantiatedTwice == true && instantiatedThrice == false)
         {
             Destroy(GameObject.FindGameObjectWithTag("cropState2"));
             GameObject crop = Instantiate(cropState3, transform.position, Quaternion.identity);
             instantiatedThrice = true;
-            if (cropState == 2) cropState = 3;
-            else cropState = 2;
+            cropState = 3;
+            
             
         }
     }
