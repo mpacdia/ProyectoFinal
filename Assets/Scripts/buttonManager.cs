@@ -37,4 +37,9 @@ public class buttonManager : MonoBehaviour
         buttons.SetActive(true);
         credits.SetActive(false);
     }
+
+    public void exit()
+    {
+        SceneManager.LoadScene("titleScreen");
+    }
 }

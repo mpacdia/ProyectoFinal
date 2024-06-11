@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public int lifeLeft = 4;
     public GameObject heart1, heart2, heart3, heart4;
 
+    public GameObject lifesPanel, youDiedPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,19 +55,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (lifeLeft == 3)
         {
-            heart4.GetComponent<Image>().color = Color.black;
+           heart4.GetComponent<Image>().color = Color.black;
+            lifesPanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.25f);
         }
         if(lifeLeft == 2)
         {
-            heart3.GetComponent<Image>().color = Color.black;
+           heart3.GetComponent<Image>().color = Color.black;
+            lifesPanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.5f);
+
         }
         if (lifeLeft == 1)
         {
-             heart2.GetComponent<Image>().color = Color.black;
+            heart2.GetComponent<Image>().color = Color.black;
+            lifesPanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
+
         }
         if (lifeLeft == 0)
         {
-             heart1.GetComponent<Image>().color = Color.black;
+            heart1.GetComponent<Image>().color = Color.black;
+            lifesPanel.SetActive(false);
+            youDiedPanel.SetActive(true);
         }
 
 
