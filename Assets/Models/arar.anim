@@ -34308,14 +34308,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: 
+    functionName: appear
     data: 
-    objectReferenceParameter: {fileID: 919132149155446097, guid: fd157c6e926bafd498510490adfd540d, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 732c12743a06c63489597b61cf925bd4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.4583334
-    functionName: 
+    functionName: disappear
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

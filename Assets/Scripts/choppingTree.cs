@@ -10,11 +10,15 @@ public class choppingTree : MonoBehaviour, IInteractable
 
     Animator animatorController;
 
+   
     public void Interact()
     {
         if (treeHitsLeft > 0)
         {
+            
+
             animatorController.SetTrigger("chopping");
+            
             treeHitsLeft--;
             if (treeHitsLeft == 0)
             {
