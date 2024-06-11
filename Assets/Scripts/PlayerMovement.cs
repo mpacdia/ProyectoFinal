@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 read;
 
     bool rotating;
+
+    public int lifeLeft = 4;
+    public GameObject heart1, heart2, heart3, heart4;
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +39,36 @@ public class PlayerMovement : MonoBehaviour
 
     public void smoke(InputAction.CallbackContext context)
     {
-        if(context.started) animatorController.SetTrigger("smoke");
+        if (context.started) 
+        {
+            animatorController.SetTrigger("smoke");
+            lifeLeft--; 
+        }
+
+        
     }
     // Update is called once per frame
     void Update()
     {
+
+        if (lifeLeft == 3)
+        {
+            heart4.GetComponent<Image>().color = Color.black;
+        }
+        if(lifeLeft == 2)
+        {
+            heart3.GetComponent<Image>().color = Color.black;
+        }
+        if (lifeLeft == 1)
+        {
+             heart2.GetComponent<Image>().color = Color.black;
+        }
+        if (lifeLeft == 0)
+        {
+             heart1.GetComponent<Image>().color = Color.black;
+        }
+
+
         read = playerInput.actions["move"].ReadValue<Vector2>();
 
         Vector3 fwd = Camera.main.transform.forward * read.y * 5; /// eje z ajustado a la camara
