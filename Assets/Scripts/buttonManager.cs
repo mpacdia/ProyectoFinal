@@ -7,12 +7,14 @@ public class buttonManager : MonoBehaviour
 {
     public GameObject buttons;
     public GameObject credits;
+    public GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         buttons.SetActive(true);
         credits.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,5 +43,12 @@ public class buttonManager : MonoBehaviour
     public void exit()
     {
         SceneManager.LoadScene("titleScreen");
+    }
+
+    public void letsContinue()
+    {
+        pauseMenu.SetActive(false);
+        PlayerMovement.Instance.dePause();
+        Time.timeScale = 1;
     }
 }

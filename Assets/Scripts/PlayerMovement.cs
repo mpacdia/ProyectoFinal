@@ -17,10 +17,32 @@ public class PlayerMovement : MonoBehaviour
 
     bool rotating;
 
+    bool paused = false;
+
     public int lifeLeft = 4;
     public GameObject heart1, heart2, heart3, heart4;
 
-    public GameObject lifesPanel, youDiedPanel;
+    public GameObject lifesPanel, youDiedPanel, pauseMenu;
+
+    public static PlayerMovement Instance
+    {
+        get;
+        private set;
+    }
+
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +67,26 @@ public class PlayerMovement : MonoBehaviour
         {
             animatorController.SetTrigger("smoke");
             lifeLeft--; 
-        }
+        }        
+    }
 
+    public void pauseGame(InputAction.CallbackContext context)
+    {
+        if (context.started && !paused)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+            paused = true;
+        }
+        else if (context.started && paused)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+            paused = false;
+        }
         
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -97,5 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
         rotating = playerInput.actions["rotate"].IsPressed();
         if (rotating) transform.Rotate(Vector3.up * playerInput.actions["rotate"].ReadValue<float>(), 24 * Time.deltaTime);
+    }
+
+    public void dePause()
+    {
+        paused = false;
     }
 }
