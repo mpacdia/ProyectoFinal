@@ -15,9 +15,11 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     public bool instantiatedTwice = false;
     public bool instantiatedThrice = false;
 
+    plantsCount plantsCount;
 
     GameObject sun;
     dayNightCycle dayNightCycle;
+
     public void Interact()
     {
         if (cropState == 0)
@@ -25,6 +27,7 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
             GameObject crop = Instantiate(cropState1, transform.position, Quaternion.identity);
             cropState = 1;
             instantiatedOnce = true;
+            plantsCount.Instance.growingPlants++;
         }
 
         if (cropState == 3)
@@ -34,6 +37,9 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
             instantiatedOnce = false;
             instantiatedTwice = false;
             instantiatedThrice = false;
+
+            plantsCount.Instance.harvestedPlants++;
+            plantsCount.Instance.growingPlants--;
         }
     }
 
