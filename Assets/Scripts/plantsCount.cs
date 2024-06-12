@@ -7,10 +7,12 @@ public class plantsCount : MonoBehaviour
 {
     TMP_Text harvested;
     TMP_Text growing;
+    TMP_Text wood;
 
 
     public int harvestedPlants = 0;
     public int growingPlants = 0;
+    public int woodCollected = 0;
     public static plantsCount Instance
     {
         get;
@@ -36,6 +38,7 @@ public class plantsCount : MonoBehaviour
     {
         harvested = GameObject.Find("harvestedText").GetComponent<TMP_Text>();
         growing = GameObject.Find("growingText").GetComponent<TMP_Text>();
+        wood = GameObject.Find("woodText").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -43,5 +46,6 @@ public class plantsCount : MonoBehaviour
     {
         harvested.text = "Harvested:" + harvestedPlants.ToString();
         growing.text = "Growing:" + growingPlants.ToString();
+        wood.text = "Wood:" + woodCollected.ToString();
     }
 }

@@ -23,7 +23,9 @@ public class choppingTree : MonoBehaviour, IInteractable
             if (treeHitsLeft == 0)
             {
                 Destroy(gameObject);
+                plantsCount.Instance.woodCollected += Random.RandomRange(2, 5);
             }
+
         }
     }
 
