@@ -10,6 +10,7 @@ public class buttonManager : MonoBehaviour
     public GameObject pauseMenu;
 
     GameObject player;
+    GameObject sun;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,8 @@ public class buttonManager : MonoBehaviour
         {
             credits.SetActive(false);
         }
-        //pauseMenu.SetActive(false);
         player = GameObject.FindGameObjectWithTag("camel");
+        sun = GameObject.Find("sun");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -36,11 +37,7 @@ public class buttonManager : MonoBehaviour
 
     public void newGame()
     {
-        
-
-        
-            PlayerPrefs.DeleteAll();
-            Debug.Log("borro");
+        PlayerPrefs.DeleteAll();
         
         loadGame();
     }
@@ -48,6 +45,7 @@ public class buttonManager : MonoBehaviour
     public void loadGame()
     {
         SceneManager.LoadScene("mainGame");
+        sun.transform.rotation = Quaternion.identity;
     }
 
     public void openCredits()
