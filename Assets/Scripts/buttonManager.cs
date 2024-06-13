@@ -9,12 +9,23 @@ public class buttonManager : MonoBehaviour
     public GameObject credits;
     public GameObject pauseMenu;
 
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-        buttons.SetActive(true);
-        credits.SetActive(false);
-        pauseMenu.SetActive(false);
+        if (buttons)
+        {
+            buttons.SetActive(true);
+        }
+        if (credits)
+        {
+            credits.SetActive(false);
+        }
+        //pauseMenu.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("camel");
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -23,7 +34,18 @@ public class buttonManager : MonoBehaviour
         
     }
 
-    public void loadNewGame()
+    public void newGame()
+    {
+        
+
+        
+            PlayerPrefs.DeleteAll();
+            Debug.Log("borro");
+        
+        loadGame();
+    }
+
+    public void loadGame()
     {
         SceneManager.LoadScene("mainGame");
     }
@@ -43,6 +65,23 @@ public class buttonManager : MonoBehaviour
     public void exit()
     {
         SceneManager.LoadScene("titleScreen");
+        Time.timeScale = 1;
+        
+    }
+    
+    public void saveAndExit()
+    {
+        player = GameObject.FindGameObjectWithTag("camel");
+        PlayerPrefs.SetInt("harvested", plantsCount.Instance.harvestedPlants);
+        PlayerPrefs.SetInt("growing", plantsCount.Instance.growingPlants);
+        PlayerPrefs.SetInt("wood", plantsCount.Instance.woodCollected);
+        PlayerPrefs.SetFloat("positionX", player.transform.position.x);
+        PlayerPrefs.SetFloat("positionY", player.transform.position.y);
+        PlayerPrefs.SetFloat("positionZ", player.transform.position.z);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("titleScreen");
+        Time.timeScale = 1;
+        
     }
 
     public void letsContinue()
@@ -50,5 +89,20 @@ public class buttonManager : MonoBehaviour
         pauseMenu.SetActive(false);
         PlayerMovement.Instance.dePause();
         Time.timeScale = 1;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+        if (scene.name == "mainGame")
+        {
+            player = GameObject.FindGameObjectWithTag("camel");
+            player.transform.position = new Vector3(PlayerPrefs.GetFloat("positionX"), PlayerPrefs.GetFloat("positionY"), PlayerPrefs.GetFloat("positionZ"));
+            Debug.Log(player.name);
+            plantsCount.Instance.harvestedPlants = PlayerPrefs.GetInt("harvested", 0);
+            plantsCount.Instance.growingPlants = PlayerPrefs.GetInt("growing", 0);
+            plantsCount.Instance.woodCollected = PlayerPrefs.GetInt("wood");
+        }
     }
 }
