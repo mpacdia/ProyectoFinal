@@ -10,13 +10,13 @@ public class choppingTree : MonoBehaviour, IInteractable
 
     Animator animatorController;
 
-   
+    AudioSource woodSound;
     public void Interact()
     {
         if (treeHitsLeft > 0)
         {
             
-
+            woodSound.Play();
             animatorController.SetTrigger("chopping");
             
             treeHitsLeft--;
@@ -34,7 +34,7 @@ public class choppingTree : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        
+        woodSound = GameObject.Find("woodSound").GetComponent<AudioSource>();
         animatorController = GameObject.Find("camello").GetComponent<Animator>();
     }
 

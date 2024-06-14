@@ -20,6 +20,8 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     GameObject sun;
     dayNightCycle dayNightCycle;
 
+    AudioSource plantingSound;
+
     public void Interact()
     {
         if (cropState == 0)
@@ -28,6 +30,7 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
             cropState = 1;
             instantiatedOnce = true;
             plantsCount.Instance.growingPlants++;
+
         }
 
         if (cropState == 3)
@@ -40,7 +43,10 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
 
             plantsCount.Instance.harvestedPlants++;
             plantsCount.Instance.growingPlants--;
+            plantingSound.Play();
+
         }
+
     }
 
     // Start is called before the first frame update
@@ -48,6 +54,8 @@ public class cropingZonePrefab : MonoBehaviour, IInteractable
     {
         sun = GameObject.Find("sun");
         dayNightCycle = sun.GetComponent<dayNightCycle>();
+
+        plantingSound = GameObject.Find("plantsSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

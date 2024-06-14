@@ -9,6 +9,8 @@ public class buttonManager : MonoBehaviour
     public GameObject credits;
     public GameObject pauseMenu;
 
+    public AudioSource buttonSound;
+
     GameObject player;
     GameObject sun;
 
@@ -29,6 +31,7 @@ public class buttonManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +40,8 @@ public class buttonManager : MonoBehaviour
 
     public void newGame()
     {
+        buttonSound.Play();
+
         PlayerPrefs.DeleteAll();
         
         loadGame();
@@ -44,24 +49,32 @@ public class buttonManager : MonoBehaviour
 
     public void loadGame()
     {
+        buttonSound.Play();
+
         SceneManager.LoadScene("mainGame");
         sun.transform.rotation = Quaternion.identity;
     }
 
     public void openCredits()
     {
+        buttonSound.Play();
+
         buttons.SetActive(false);
         credits.SetActive(true);
     }
     
     public void closeCredits()
     {
+        buttonSound.Play();
+
         buttons.SetActive(true);
         credits.SetActive(false);
     }
 
     public void exit()
     {
+        buttonSound.Play();
+
         SceneManager.LoadScene("titleScreen");
         Time.timeScale = 1;
         
@@ -69,6 +82,8 @@ public class buttonManager : MonoBehaviour
     
     public void saveAndExit()
     {
+        buttonSound.Play();
+
         player = GameObject.FindGameObjectWithTag("camel");
         PlayerPrefs.SetInt("harvested", plantsCount.Instance.harvestedPlants);
         PlayerPrefs.SetInt("growing", plantsCount.Instance.growingPlants);
@@ -84,6 +99,8 @@ public class buttonManager : MonoBehaviour
 
     public void letsContinue()
     {
+        buttonSound.Play();
+
         pauseMenu.SetActive(false);
         PlayerMovement.Instance.dePause();
         Time.timeScale = 1;

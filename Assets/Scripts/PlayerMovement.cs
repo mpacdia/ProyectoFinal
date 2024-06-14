@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject heart1, heart2, heart3, heart4;
 
     public GameObject lifesPanel, youDiedPanel, pauseMenu;
+    public AudioSource walkingSound;
 
     public static PlayerMovement Instance
     {
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         animatorController = GetComponent<Animator>();
+        //walkingSound = GameObject.Find("walkingSound").GetComponent<AudioSource>();
     }
     public void toMovePlayer(InputAction.CallbackContext context)
     {
@@ -133,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
             animatorController.SetBool("moving", false);
         }
 
+        walkingEffect();
         rotating = playerInput.actions["rotate"].IsPressed();
         if (rotating) transform.Rotate(Vector3.up * playerInput.actions["rotate"].ReadValue<float>(), 24 * Time.deltaTime);
     }
@@ -140,5 +143,17 @@ public class PlayerMovement : MonoBehaviour
     public void dePause()
     {
         paused = false;
+    }
+
+    void walkingEffect()
+    {
+        if(animatorController.GetBool("moving") == true)
+        {
+            walkingSound.Play();
+        }
+        else
+        {
+            walkingSound.Pause();
+        }
     }
 }
