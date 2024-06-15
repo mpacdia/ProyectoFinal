@@ -18,6 +18,8 @@ public class dayNightCycle : MonoBehaviour
 
     public float rotationSun = 0;
 
+    public AudioSource music;
+
     [SerializeField]
     List<GameObject> cropingZones = new List<GameObject>();
 
@@ -59,6 +61,9 @@ public class dayNightCycle : MonoBehaviour
             currentDay++;
             
         }
+
+        if (daytime) music.Play();
+        else music.Stop();
         //Debug.Log("rotation:" + rotationSun + "," + "currentDay:" + currentDay + "daytime:" + daytime);
     }
 
